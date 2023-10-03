@@ -1,0 +1,23 @@
+{
+  "id": 8,
+  "name": "Andrea Bursconi",
+  "username": "chel",
+  "email": "trueface@babina.com",
+  "address": {
+    "street": "Prospect",
+    "suite": "???",
+    "city": "Napoli",
+    "zipcode": "91428-2261",
+    "geo": {
+      "lat": "-8.2386",
+      "lng": "44.2232"
+    }
+  },
+  "phone": "325-648-3404",
+  "website": "idinahui.com",
+  "company": {
+    "name": "GGW",
+    "catchPhrase": "EEEEEEEEEEEEEEEEEEEEEEEE ,boy",
+    "bs": "yes"
+  }
+}

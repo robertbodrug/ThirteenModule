@@ -8,7 +8,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
+
 
 public class UsersService {
     private static final String CLIENT_URL = "https://jsonplaceholder.typicode.com/users/";
@@ -16,9 +16,7 @@ public class UsersService {
     private static HttpResponse<String> push(HttpRequest request) throws IOException, InterruptedException {
 
         HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<String> response =
-                client.send(request, HttpResponse.BodyHandlers.ofString());
-        return response;
+        return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
     //First Task

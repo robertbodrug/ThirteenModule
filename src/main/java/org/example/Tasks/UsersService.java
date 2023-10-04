@@ -1,6 +1,7 @@
 package org.example.Tasks;
 
 import com.google.gson.Gson;
+import org.example.Tasks.Comments.UsersTask;
 
 import java.io.*;
 import java.net.*;
@@ -8,6 +9,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 
 public class UsersService {
@@ -86,6 +89,23 @@ Long lastId =posts[posts.length-1].id;
         os.close();
 
         return comments;
+    }
+    //ThirdTask
+    public static String getNotCompletedTasksByID(Long id) throws Exception {
+        Gson gson = new Gson();
+        HttpRequest request =  HttpRequest.newBuilder(new URI(CLIENT_URL+id+"/todos"))
+                .GET()
+                .build();
+
+
+        UsersTask[] posts = gson.fromJson( push(request).body(), UsersTask[].class);
+
+        return Arrays.stream(posts)
+                .filter(b-> !b.completed)
+                .map(gson::toJson)
+                .collect(Collectors.joining("\n"));
+
+
     }
 
 }
